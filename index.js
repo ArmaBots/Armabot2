@@ -26,7 +26,7 @@ say('ArmaBot', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`Creador por y para ARM`, {
+say(`Creado Por ARM & YANE`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']})
@@ -92,8 +92,8 @@ console.log(chalk.yellow(`╭${lineM}
 ┊${chalk.blueBright('┊')}${chalk.cyan(`😺 Project Author: Richetti y GeriPium`)}
 ┊${chalk.blueBright('┊')}${chalk.blueBright('┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ┊${chalk.blueBright('┊')}${chalk.yellow(`💜 Colaboradores:`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• Richetti (+56928561853)`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• GeriPium (+56941827124)`)}
+┊${chalk.blueBright('┊')}${chalk.yellow(`• ARM (+52 55 27305507)`)}
+┊${chalk.blueBright('┊')}${chalk.yellow(`• ARM2 (+52 55 3293 3843)`)}
 ┊${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
 ┊${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
 ┊${chalk.blueBright('┊')}${chalk.cyan(`⏰ Hora Actual :`)}

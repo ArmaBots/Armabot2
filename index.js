@@ -26,7 +26,7 @@ say('ArmaBot', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`Creado Por ARM & YANE`, {
+say(`Creado Por ARM`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']})

@@ -13,8 +13,8 @@ import { en, es, id, ar, pt } from "./lib/idiomas/total-idiomas.js"
 // [ES] > Agrega el número que será Bot y los que serán propietarios.
 // [EN] > Add the number that will be Bot and those that will be owners.
 global.owner = [
-["5214498780815", 'ArmaBot2t', true], //ArmaBot2🐈
-["5215532933843"], 
+["5214498780815", 'ArmaBot', true], //ArmaBot🐈
+["5215527305507"], 
 ["5215532933843"], 
 ["5215532933843"],
 ['5215532933843'],
@@ -131,9 +131,9 @@ global.moment = moment
 // [ES] > Agregate a ti, colaboradores o ayudates, aparecerá en el comando de lista de contactos.
 // [EN] > Adding yourself, collaborators or helpers will appear in the contact list command.
 global.official = [ // Agregate si eres Owner
-["5215532933843", 'ArmaBot2', 1], 
-["5215532933843", 'ArmaBot2', 1],  
-["5215532933843", 'ArmaBot2', 1]]
+["5215532933843", 'ArmaBot', 1], 
+["5215532933843", 'ArmaBot', 1],  
+["5215532933843", 'ArmaBot', 1]]
 
 global.mail = '' // Add email
 global.desc = '' // Add short description (20 caractres max)
@@ -141,8 +141,8 @@ global.desc2 = '' // Add long description (90 caractres max) (Este parámetro se
 global.country = '' // Add country, example: 🇪🇨
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 
-global.packname = `ArmaBot2` //"ArmaBot2"
-global.author = `ArmaBot2` //"ArmaBot2"
+global.packname = `ArmaBot` //"ArmaBot"
+global.author = `ArmaBot` //"ArmaBot"
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
 // [ES] > INFORMACIÓN DE VERSIONES DEL BOT, POR FAVOR 
@@ -150,7 +150,7 @@ global.author = `ArmaBot2` //"ArmaBot2"
 // [EN] > BOT VERSION INFORMATION, PLEASE KEEP THIS UNCHANGED, WE STRIVE DAILY TO PROVIDE YOU WITH A BOT FOR THE COMMUNITY, BE GRATEFUL
 global.vs = "1.7.0"
 global.vsJB = "3.0 (Beta)"
-global.gt = "ArmaBot2"
+global.gt = "ArmaBot"
 
 fetchDataAndProcess().catch(error => console.error('Ocurrió un error:', error))
 
@@ -178,8 +178,8 @@ global.eg = '╰⊱💚⊱ *𝙀́𝙓𝙄𝙏𝙊 | 𝙎𝙐𝘾𝘾𝙀𝙎�
 global.exito = eg
 
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •
-global.wm = "Armabot2"
-global.igfg = "ArmaBot2"
+global.wm = "Armabot"
+global.igfg = "ArmaBot"
 global.nomorown = "5215532933843"
 global.pdoc = ["application/vnd.openxmlformats-officedocument.presentationml.presentation", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.ms-excel", "application/msword", "application/pdf", "text/rtf"]
 // • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • • •

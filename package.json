@@ -1,5 +1,5 @@
 {
-  "name": "MichiBot",
+  "name": "ArmaBot",
   "version": "1.0.0",
   "description": "El mejor bot de whatsapp",
   "main": "index.js",
@@ -16,16 +16,16 @@
     "eslint": "eslint .",
     "eslintfix": "eslint --fix ."
   },
-  "homepage": "https://github.com/Richetti123/MichiBot6",
+  "homepage": "https://github.com/ArmaBots/ArmaBot3",
   "author": {
     "name": "BrunoSobrino"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Richetti123/MichiBot6.git"
+    "url": "git+https://github.com/ArmaBots/ArmaBot3.git"
   },
   "bugs": {
-    "url": "https://github.com/Richetti123/MichiBot6/issues"
+    "url": "https://github.com/ArmaBots/ArmaBot3/issues"
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {

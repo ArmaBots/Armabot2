@@ -1,5 +1,5 @@
 /* ---------------------------------------------------------------------------------------
-  🍀 • By ARM
+  🍀 • By Richetti y Geridzn
 -----------------------------------------------------------------------------------------*/
 
 import {randomBytes} from 'crypto';
@@ -14,8 +14,8 @@ const handler = async (m, {conn, text, groupMetadata}) => {
   const who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender;
   const name = await conn.getName(m.sender);
   const groups = Object.entries(conn.chats).filter(([jid, chat]) => jid.endsWith('@g.us') && chat.isChats && !chat.metadata?.read_only && !chat.metadata?.announce).map((v) => v[0]);
-  const fakegif = {key: {participant: `0@s.whatsapp.net`, ...('6289643739077-1613049930@g.us' ? {remoteJid: '6289643739077-1613049930@g.us'} : {})}, message: {'videoMessage': {'title': 'ArmaBot2', 'h': `Hmm`, 'seconds': '99999', 'gifPlayback': 'true', 'caption': 'ArmaBot2', 'jpegThumbnail': false}}};
-  const teks = `*MENSAJE OFICIAL ARMABOT2*\n*\n ${text}`;
+  const fakegif = {key: {participant: `0@s.whatsapp.net`, ...('6289643739077-1613049930@g.us' ? {remoteJid: '6289643739077-1613049930@g.us'} : {})}, message: {'videoMessage': {'title': wm, 'h': `Hmm`, 'seconds': '99999', 'gifPlayback': 'true', 'caption': wm, 'jpegThumbnail': false}}};
+  const teks = `*MENSAJE OFICIAL ${global.packname}*\n\n ${text}`;
   for (const id of groups) {
     await conn.sendMessage(id, {text: teks}, {quoted: fakegif});
     global.db.data.users[m.sender].msgwait = new Date * 1;

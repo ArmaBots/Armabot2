@@ -32,8 +32,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 	await conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, fkontak, m)
 	try {
 		let v = youtubeLink
-		let data = await fetch('https://www.vanitas-api.online/download/youtube-video?url=' + encodeURIComponent(v) + '&apikey=richetti').then((data) => data.json()).then((res) => res);
-		await await conn.sendMessage(m.chat, { video: { url: data.response.link }, fileName: `${data.response.title}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m });
+		const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+		const dataRET = await dataRE.json();
+		await await conn.sendMessage(m.chat, { video: { url: dataRET.response.link }, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', caption: `╭━❰  ${wm}  ❱━⬣\n┃ 💜 ${mid.smsYT1}\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣}` }, { quoted: m })
 	} catch (E1) {
 //console.log('Error 1 ' + E1)  
 try {  

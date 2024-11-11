@@ -2,7 +2,6 @@ import fetch from 'node-fetch';
 import yts from 'yt-search';
 import ytdl from 'ytdl-core';
 import axios from 'axios';
-import { ytDownload } from '../lib/y2mate.js';
 
 const handler = async (m, {conn, command, args, text, usedPrefix}) => {
 if (!args || !args[0]) return conn.reply(m.chat, `${lenguajeGB['smsAvisoMG']()}${mid.smsMalused7}\n*${usedPrefix + command} https://youtu.be/85xI8WFMIUY*`, fkontak, m)
@@ -17,28 +16,20 @@ additionalText = '𝙑𝙄𝘿𝙀𝙊'
 conn.reply(m.chat, `${lenguajeGB['smsAvisoEG']()}𝙋𝙍𝙊𝙉𝙏𝙊 𝙏𝙀𝙉𝘿𝙍𝘼 𝙎𝙐 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏𝙊 ${additionalText}, 𝙀𝙎𝙋𝙀𝙍𝙀 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍\n\n𝙎𝙊𝙊𝙉 𝙔𝙊𝙐 𝙒𝙄𝙇𝙇 𝙃𝘼𝙑𝙀 𝙔𝙊𝙐𝙍 ${additionalText} 𝘿𝙊𝘾𝙐𝙈𝙀𝙉𝙏, 𝙋𝙇𝙀𝘼𝙎𝙀 𝙒𝘼𝙄𝙏`, fkontak,  m)
 if (command == 'playaudiodoc' || command == 'ytmp3doc') {
 try {
-	let v = yt_play[0].url;
-	let data = await fetch('https://www.vanitas-api.online/download/youtube-audio?url=' + encodeURIComponent(v) + '&apikey=richetti').then((data) => data.json()).then((res) => res);
-	let cap = `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`.trim();
-	await conn.sendMessage(m.chat, {
-		document: { 
-			url: data.response.link
-		},
-		fileName: `${data.response.title}.mp3`,
-		caption: cap,
-		mimetype: 'audio/mpeg',
-		contextInfo: {
-			externalAdReply: {
-				title: data.resultado.title,
-				body: "",
-				thumbnailUrl: data.resultado.image, 
-				mediaType: 1,
-				showAdAttribution: true,
-				renderLargerThumbnail: true
-			}
-		}
-	} , { quoted: m });
-	handler.limit = 1
+const v = yt_play[0].url;
+const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+const dataRET = await dataRE.json();
+let cap = `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`.trim()
+await conn.sendMessage(m.chat, { document: { url: dataRET.response.link }, fileName: `${Date.now()}.mp3`, caption: cap, mimetype: 'audio/mpeg', contextInfo: {
+externalAdReply: {
+title: ttl,
+body: "",
+thumbnailUrl: yt_play[0].thumbnail, 
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}} , { quoted: m })   
+handler.limit = 1
 } catch(e) {
 	console.log(e);
 try {
@@ -76,28 +67,19 @@ handler.limit = 2
 }}}}
 if (command == 'playvideodoc' || command == 'ytmp4doc') {
 try {
-	let v = yt_play[0].url;
-	let data = await fetch('https://www.vanitas-api.online/download/youtube-video?url=' + encodeURIComponent(v) + '&apikey=richetti').then((data) => data.json()).then((res) => res);
-	let cap = `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`.trim();
-	await conn.sendMessage(m.chat, {
-		document: { 
-			url: data.resultado.download.audio
-		},
-		fileName: `${data.resultado.title}.mp3`,
-		caption: cap,
-		mimetype: 'audio/mpeg',
-		contextInfo: {
-			externalAdReply: {
-				title: data.resultado.title,
-				body: "",
-				thumbnailUrl: data.resultado.image, 
-				mediaType: 1,
-				showAdAttribution: true,
-				renderLargerThumbnail: true
-			}
-		}
-	} , { quoted: m });
-	handler.limit = 2
+const v = yt_play[0].url;
+const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-video?url=${v}`);
+const dataRET = await dataRE.json();
+await conn.sendMessage(m.chat, { document: { url: dataRET.response.link }, caption: `╭━❰  ${wm}  ❱━⬣\n┃📥 𝙔𝙊𝙐𝙏𝙐𝘽𝙀 𝘿𝙇 📥\n┃ও *${mid.smsYT1}:* \n┃﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘﹘\n┃ও *${mid.smsYT11}:*\n╰━━━━━❰ *𓃠 ${vs}* ❱━━━━⬣`, fileName: `${Date.now()}.mp4`, mimetype: 'video/mp4', contextInfo: {
+externalAdReply: {
+title: ttl,
+body: "",
+thumbnailUrl: yt_play[0].thumbnail, 
+mediaType: 1,
+showAdAttribution: true,
+renderLargerThumbnail: true
+}}} , { quoted: m })   
+handler.limit = 2
 } catch {
 try {
 const mediaa = await ytMp4(yt_play[0].url);

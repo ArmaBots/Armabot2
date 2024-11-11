@@ -10,14 +10,18 @@ try {
 if (command == 'play.1') {
   conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsAud, m, { contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
   try {
-        let data = await fetch('https://www.vanitas-api.online/download/youtube-audio?url=' + encodeURIComponent(text) + '&apikey=richetti').then((data) => data.json()).then((res) => res);
-        let aa = await conn.sendMessage(m.chat, {audio: { url: data.response.link }, fileName: `error.mp3`, mimetype: 'audio/mpeg' }, {quoted: m});
-        if (!aa) {
-          throw new Error();
-        }
-      } catch {
-        const res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`);
-        const json = await res.json();
+    const searches = await fetch('https://www.vanitas-api.online/search/youtube?text=' + text);
+    searches = await searches.json();
+
+    const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${searches.response[0].url}`);
+    const dataRET = await dataRE.json();
+    
+    const aa = await conn.sendMessage(m.chat, {audio: {url: dataRET.response.link }, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
+    if (!aa) {
+      throw new Error();
+    }} catch {
+      const res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`);
+      const json = await res.json();
       const aa_1 = await conn.sendMessage(m.chat, {audio: {url: json.result.audio}, fileName: `error.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
       if (!aa_1) aa_1 = await conn.sendFile(m.chat, json.result.audio, 'error.mp3', null, m, false, {mimetype: 'audio/mp4'});
     }}
@@ -25,8 +29,13 @@ if (command == 'play.1') {
       conn.reply(m.chat, lenguajeGB['smsAvisoEG']() + mid.smsVid, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: wm, body: '😻 𝗦𝘂𝗽𝗲𝗿 𝗚𝗮𝘁𝗮𝗕𝗼𝘁-𝗠𝗗 - 𝗪𝗵𝗮𝘁𝘀𝗔𝗽𝗽', previewType: 0, thumbnail: gataImg, sourceUrl: accountsgb }}}) 
 
       try {
-        let data = await fetch('https://www.vanitas-api.online/download/youtube-video?url=' + encodeURIComponent(v) + '&apikey=richetti').then((data) => data.json()).then((res) => res);
-        const aa_2 = await conn.sendMessage(m.chat, {video: { url: data.response.link }, fileName: `error.mp4`, caption: `${wm}`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
+        const searches = await fetch('https://www.vanitas-api.online/search/youtube?text=' + text);
+        searches = await searches.json();
+    
+        const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-video?url=${searches.response[0].url}`);
+        const dataRET = await dataRE.json();
+
+        const aa_2 = await conn.sendMessage(m.chat, {video: {url: dataRET.response.link }, fileName: `error.mp4`, caption: `${wm}`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
 
         if (!aa_2) {
           throw new Error();

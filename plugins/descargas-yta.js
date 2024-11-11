@@ -32,10 +32,10 @@ let handler = async (m, { text, conn, args, usedPrefix, command }) => {
 
 			try {
 				let v = youtubeLink;
-				let data = await fetch('https://www.vanitas-api.online/download/youtube-audio?url=' + encodeURIComponent(v) + '&apikey=richetti').then((data) => data.json()).then((res) => res);
-				await conn.sendMessage(m.chat, { audio: { url: data.response.link }, mimetype: 'audio/mpeg', ptt: false }, { quoted: m });
-			} catch(e) {
-				console.log(e);
+				const dataRE = await fetch(`https://www.vanitas-api.online/download/youtube-audio?url=${v}`);
+				const dataRET = await dataRE.json();
+				await conn.sendFile(m.chat, dataRET.response.link, 'default.mp3', null, m, false, { mimetype: 'audio/mp4' });
+			} catch {
 				try {
 					let lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${youtubeLink}`)    
 					let lolh = await lolhuman.json()
